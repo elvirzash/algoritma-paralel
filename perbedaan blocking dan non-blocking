@@ -1,0 +1,13 @@
+Function pada blocking menggunakan MPI_Send() dan MPI_Recv().
+Pada bentuk blocking maka proses akan menunggu operasi kirim dan terima data selesai.
+Blocking proses yang meminta pesan akan menunggu hingga pesan yang dimaksud diterima. 
+Saat pesan tidak juga diterima proses dapat menunggu terus tanpa kepastian.
+Yang berarti jika ada transfer diikuti dengan perhitungan, maka perhitungan harus dilakukan setelah keberhasilan transfer.
+
+Function pada non-blocking menggunakan MPI_Isend() dan MPI_Irecv().
+Function ini tidak memblokir bahkan jika komunikasi belum selesai, MPI_Probe() dan MPI_Wait() untuk melihat apakah komunikasi telah selesai.
+Non-blocking berarti penghitungan dan pengiriman data dapat terjadi dalam waktu bersamaan untuk satu proses.
+Proses dengan non-blocking send memiliki kelebihan proses dapat terus berlanjut tanpa menunggu adanya konfirmasi bahwa pesan 
+telah diterima namun di sisi lain jika proses mengalami kesalahan dan terus menerus mengirimkan pesan maka sumber daya 
+komputer dapat terkuras oleh proses tersebut.
+Sisi buruknya adalah pesan dapat hilang ketika prosedur receive dipanggil sebelum pesan sampai.

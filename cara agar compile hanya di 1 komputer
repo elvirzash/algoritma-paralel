@@ -1,0 +1,3 @@
+Dengan cara menambahkan/set environment variable yang bernama MPI_HOSTS
+kemudian mengarahkannya ke file host yang akan dituju/dirun,
+Script akan otomatis include ke dalam command line ketika MPI di jalankan,
